@@ -54,12 +54,6 @@ var coords = [
 
 ## Future Enhancements
 - Add functionality to add new vertices by clicking within the container.
-- Implement more predefined shapes (e.g., circle, triangle).
-- Provide export functionality to save the clip-path code as a CSS file.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
