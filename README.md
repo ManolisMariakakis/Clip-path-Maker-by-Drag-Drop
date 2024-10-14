@@ -55,6 +55,10 @@ var coords = [
 ## Future Enhancements
 - Add functionality to add new vertices by clicking within the container.
 
+## License
+
+https://github.com/ManolisMariakakis/Clip-path-Maker-by-Drag-Drop?tab=GPL-3.0-1-ov-file#readme
+
 ---
 
 Enjoy creating custom clip-path shapes with ease!
