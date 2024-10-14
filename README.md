@@ -1,64 +1,117 @@
 
 # Clip-path Maker by Drag/Drop
 
-This project is an interactive tool for creating and customizing CSS `clip-path` shapes using drag-and-drop functionality. It allows users to visually define a polygonal `clip-path` by adjusting draggable handles on a shape within a container. The corresponding CSS `clip-path` code is dynamically updated and displayed as the shape is modified.
+**Clip-path Maker** is an interactive tool that allows users to create and modify clip-path shapes by dragging handles on a visual interface. The tool generates clip-path polygons that can be applied to elements using CSS. Users can add, remove, and adjust handles to customize the shape.
 
 ## Features
 
-- **Drag-and-Drop Interaction**: Adjust polygon vertices by dragging handles around the container.
-- **Real-Time CSS Code Generation**: As you move the handles, the CSS `clip-path` value is updated and displayed on the page.
-- **Custom Shapes**: Start with a predefined shape (polygon) and modify it by adjusting the coordinates.
-- **Handle Deletion**: Remove vertices if needed using the delete button that appears when dragging.
-- **Coordinate Snapping**: Ensures that handles stay within the boundaries of the container.
+- **Interactive Handles**: Drag handles to adjust the clip-path points visually.
+- **Add New Handles**: Right-click on an existing handle to add a new point after the clicked handle.
+- **Delete Handles**: Left-click and delete handles to remove a point from the shape.
+- **Dynamic Shape Updates**: As you drag, add, or delete handles, the clip-path polygon is updated and applied instantly.
+- **Responsive Design**: The tool is designed to adapt to different screen sizes.
 
-## How It Works
+## Usage
 
-### 1. HTML (`index.html`)
-- The core HTML sets up the `clipbox` container where the shape will be displayed and manipulated.
-- A `clippath` element displays the generated `clip-path` CSS code.
-- On window load, a `ClipPathMaker` object is initialized, and a default shape is drawn using predefined coordinates.
+### Installation
 
-### 2. JavaScript (`ClipPathDragMaker.js`)
-- This file contains the `ClipPathMaker` class, which:
-  - Initializes the clip-path editor within the `clipbox`.
-  - Creates draggable handles based on the provided coordinates.
-  - Allows dynamic dragging of handles, updating the shape and corresponding CSS code.
-  - Implements a simple drag-and-drop system to manipulate the vertices of the polygon.
+1. **Clone the repository**:
 
-### 3. CSS (`ClipPathDragMaker.css`)
-- Defines styles for the `clipbox`, draggable handles, and visual feedback (such as hover and drag effects).
-- Each handle represents a point in the polygon and is styled accordingly for clarity and ease of use.
+   ```bash
+   git clone https://github.com/ManolisMariakakis/Clip-path-Maker-by-Drag-Drop
+   ```
 
-## Setup and Usage
+2. **Include the project files in your web project**:
 
-### Prerequisites
-No specific prerequisites are needed beyond a modern web browser.
+   - `ClipPathDragMaker.js`
+   - `index.html` (optional for basic usage)
 
-### Steps to Use
-1. Clone or download the repository.
-2. Open `index.html` in a web browser.
-3. Upon loading, you will see a shape with draggable handles in a 300x300 pixel box.
-4. Drag the handles to adjust the shape.
-5. The `clip-path` CSS code is automatically updated and shown below the shape.
+### Basic Setup
 
-### Customizing the Shape
-To start with a different shape, modify the `coords` array in the `window.onload` function in `index.html`. The `coords` array holds the percentage values for each vertex of the polygon.
+1. **Include the necessary JavaScript file in your HTML**:
 
-Example:
-```javascript
-var coords = [
-    [20, 0], [80, 0], [100, 20], [100, 80],
-    [80, 100], [20, 100], [0, 80], [0, 20],
-];
+   ```html
+   <script src="ClipPathDragMaker.js" defer></script>
+   ```
+
+2. **Add an empty `.clipbox` div and a `.clippath` code element**:
+
+   ```html
+   <div class="clipbox"></div>
+   <code class="clippath"></code>
+   ```
+
+3. **Initialize the `ClipPathMaker` in your JavaScript**:
+
+   ```javascript
+   window.onload = function () {
+     var clipPathMaker = new ClipPathMaker('.clipbox', '.clippath');
+     var coords = [
+       [20, 0],
+       [80, 0],
+       [100, 20],
+       [100, 80],
+       [80, 100],
+       [20, 100],
+       [0, 80],
+       [0, 20],
+     ];
+     clipPathMaker.makeShape(coords);
+   };
+   ```
+
+### How to Use
+
+- **Drag Handles**: Click and drag handles to adjust their positions. The corresponding `clip-path` values are automatically updated.
+- **Right-click to Add Handle**: Right-click on any handle to add a new handle next to it. The new handle will be positioned with a slight offset from the original point.
+- **Delete Handle**: Left-click on any handle to bring up the delete button. Clicking the delete button will remove that handle and update the clip-path.
+
+### Example
+
+Here's a simple example that creates a polygon shape:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clip-path Maker by Drag/Drop</title>
+  <script src="ClipPathDragMaker.js" defer></script>
+</head>
+<body>
+  <div class="clipbox"></div>
+  <code class="clippath"></code>
+  <script>
+    window.onload = function () {
+      var clipPathMaker = new ClipPathMaker('.clipbox', '.clippath');
+      var coords = [
+        [20, 0],
+        [80, 0],
+        [100, 20],
+        [100, 80],
+        [80, 100],
+        [20, 100],
+        [0, 80],
+        [0, 20],
+      ];
+      clipPathMaker.makeShape(coords);
+    };
+  </script>
+</body>
+</html>
 ```
 
-## Future Enhancements
-- Add functionality to add new vertices by clicking within the container.
+### Customization
+
+- **Modify the Initial Shape**: Adjust the `coords` array to create different shapes according to your needs.
+- **Styling**: If you wish to customize the appearance beyond the default styles, you can modify the `ClipPathDragMaker.css` file. Note that since the CSS is dynamically loaded by the JavaScript, you'll need to ensure your custom styles are applied correctly.
+
+## Project Structure
+
+- **ClipPathDragMaker.js**: Contains the main JavaScript logic to create and manage the clip-path shapes and handle dragging events. It also dynamically appends the CSS file to the document.
+- **index.html**: Basic HTML setup to demonstrate the tool.
+- **ClipPathDragMaker.css**: Optional CSS file for customizing styles if needed.
 
 ## License
 
-https://github.com/ManolisMariakakis/Clip-path-Maker-by-Drag-Drop?tab=GPL-3.0-1-ov-file#readme
-
----
-
-Enjoy creating custom clip-path shapes with ease!
+This project is licensed under the **GPL-3.0 License**.

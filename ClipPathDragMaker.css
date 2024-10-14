@@ -160,10 +160,6 @@ https://github.com/ManolisMariakakis/Clip-path-Maker-by-Drag-Drop?tab=GPL-3.0-1-
     vertical-align: baseline;
 }
 
-.customizing-no-poly .point {
-    opacity: 0.5;
-}
-
 .point:after {
     display: block;
     position: absolute;
