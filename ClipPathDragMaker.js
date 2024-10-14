@@ -137,7 +137,7 @@ class ClipPathMaker {
                                 // Rebuild the shape after deletion
                                 // Get the current clip-path as text from the clippath element
                                 var clip_path = this.clippath.textContent;
-                                console.log(`clip_path ${clip_path}`); // Log the current clip-path for debugging
+                                //console.log(`clip_path ${clip_path}`); // Log the current clip-path for debugging
 
                                 // Remove 'clip-path:' and 'polygon()' from the string and get the coordinate part
                                 var coordString = clip_path.replace('clip-path:', '').replace('polygon(', '').replace(')', '');
@@ -154,7 +154,7 @@ class ClipPathMaker {
                                 });
 
                                 // Log the final coordinates array for debugging
-                                console.log('coordsArray:', coordsArray);
+                                //console.log('coordsArray:', coordsArray);
 
                                 // Rebuild and redraw the shape using the updated coordinates
                                 this.makeShape(coordsArray);
