@@ -1,0 +1,358 @@
+.clipshape {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background-color: #dca118;
+    background-size: cover;
+    background-position: center center;
+}
+
+.cliphandles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.handle,
+.delete-point {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+
+.handle {
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 10px;
+    opacity: 0.8;
+    -webkit-transition: opacity 0.25s;
+    transition: opacity 0.25s;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+}
+
+.handle:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+}
+
+.handle.is-dragging {
+    z-index: 100;
+    box-shadow: inset 0 0 0 3px;
+    cursor: none;
+    -webkit-transition: box-shadow 0;
+    transition: box-shadow 0;
+}
+
+.handle.bar {
+    border-radius: 20px;
+}
+
+.handle.bar:after {
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+}
+
+.delete-point {
+    position: absolute;
+    left: 22px;
+    top: 0;
+    width: 25px;
+    padding-left: 5px;
+    border-radius: 3px;
+    background: #d3d0c9;
+    -webkit-transform: scale3d(0, 0, 0);
+    -ms-transform: scale3d(0, 0, 0);
+    transform: scale3d(0, 0, 0);
+    -webkit-transform-origin: left center;
+    -ms-transform-origin: left center;
+    transform-origin: left center;
+    cursor: pointer;
+    opacity: 0.75;
+    -webkit-clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
+    clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
+    -webkit-transition: -webkit-transform 0.25s, opacity 0.25s;
+    transition: transform 0.25s, opacity 0.25s;
+}
+
+.show-delete .delete-point {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    -ms-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+    -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.15, 1, 0.3, 1.1),
+        opacity 0.25s;
+    transition: transform 0.25s cubic-bezier(0.15, 1, 0.3, 1.1), opacity 0.25s;
+    opacity: 1;
+}
+
+.delete-point:hover {
+    -webkit-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.15, 1, 0.3, 1.1);
+    transition: transform 0.25s cubic-bezier(0.15, 1, 0.3, 1.1);
+    opacity: 1;
+}
+
+.delete-point:active {
+    background: #100a09;
+}
+
+.delete-point:active:after {
+    background: #d3d0c9;
+}
+
+.delete-point:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 9px;
+    right: 4px;
+    bottom: 4px;
+    background: #100a09;
+    -webkit-clip-path: polygon(20% 10%,
+            10% 20%,
+            40% 50%,
+            10% 80%,
+            20% 90%,
+            50% 60%,
+            80% 90%,
+            90% 80%,
+            60% 50%,
+            90% 20%,
+            80% 10%,
+            50% 40%);
+    clip-path: polygon(20% 10%,
+            10% 20%,
+            40% 50%,
+            10% 80%,
+            20% 90%,
+            50% 60%,
+            80% 90%,
+            90% 80%,
+            60% 50%,
+            90% 20%,
+            80% 10%,
+            50% 40%);
+}
+
+
+
+
+.point {
+    display: inline-block;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.customizing-no-poly .point {
+    opacity: 0.5;
+}
+
+.point:after {
+    display: block;
+    position: absolute;
+    content: "";
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: currentColor;
+    top: -webkit-calc(50% - 40px);
+    top: calc(50% - 40px);
+    left: -webkit-calc(50% - 40px);
+    left: calc(50% - 40px);
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    will-change: transform, opacity;
+    opacity: 0;
+}
+
+.point.changing {
+    font-weight: bold;
+}
+
+.point.changing:after {
+    -webkit-animation: emph 1.25s;
+    animation: emph 1.25s;
+    -webkit-animation-delay: inherit;
+    animation-delay: inherit;
+}
+
+.handle:nth-of-type(1),
+.point:nth-of-type(1),
+figure:nth-of-type(1) {
+    color: tomato;
+}
+
+.handle:nth-of-type(2),
+.point:nth-of-type(2),
+figure:nth-of-type(2) {
+    color: mediumseagreen;
+}
+
+.handle:nth-of-type(3),
+.point:nth-of-type(3),
+figure:nth-of-type(3) {
+    color: orange;
+}
+
+.handle:nth-of-type(4),
+.point:nth-of-type(4),
+figure:nth-of-type(4) {
+    color: dodgerblue;
+}
+
+.handle:nth-of-type(5),
+.point:nth-of-type(5),
+figure:nth-of-type(5) {
+    color: orchid;
+}
+
+.handle:nth-of-type(6),
+.point:nth-of-type(6),
+figure:nth-of-type(6) {
+    color: lightgray;
+}
+
+.handle:nth-of-type(7),
+.point:nth-of-type(7),
+figure:nth-of-type(7) {
+    color: darkturquoise;
+}
+
+.handle:nth-of-type(8),
+.point:nth-of-type(8),
+figure:nth-of-type(8) {
+    color: palevioletred;
+}
+
+.handle:nth-of-type(9),
+.point:nth-of-type(9),
+figure:nth-of-type(9) {
+    color: khaki;
+}
+
+.handle:nth-of-type(10),
+.point:nth-of-type(10),
+figure:nth-of-type(10) {
+    color: limegreen;
+}
+
+.handle:nth-of-type(11),
+.point:nth-of-type(11),
+figure:nth-of-type(11) {
+    color: coral;
+}
+
+.handle:nth-of-type(12),
+.point:nth-of-type(12),
+figure:nth-of-type(12) {
+    color: slateblue;
+}
+
+.handle:nth-of-type(13),
+.point:nth-of-type(13),
+figure:nth-of-type(13) {
+    color: indianred;
+}
+
+.handle:nth-of-type(14),
+.point:nth-of-type(14),
+figure:nth-of-type(14) {
+    color: gray;
+}
+
+.handle:nth-of-type(15),
+.point:nth-of-type(15),
+figure:nth-of-type(15) {
+    color: plum;
+}
+
+.handle:nth-of-type(16),
+.point:nth-of-type(16),
+figure:nth-of-type(16) {
+    color: olivedrab;
+}
+
+.handle:nth-of-type(17),
+.point:nth-of-type(17),
+figure:nth-of-type(17) {
+    color: lightgreen;
+}
+
+.handle:nth-of-type(18),
+.point:nth-of-type(18),
+figure:nth-of-type(18) {
+    color: lightsalmon;
+}
+
+.handle:nth-of-type(19),
+.point:nth-of-type(19),
+figure:nth-of-type(19) {
+    color: gold;
+}
+
+.handle:nth-of-type(20),
+.point:nth-of-type(20),
+figure:nth-of-type(20) {
+    color: peru;
+}
+
+.handle:nth-of-type(21),
+.point:nth-of-type(21),
+figure:nth-of-type(21) {
+    color: royalblue;
+}
+
+.handle:nth-of-type(22),
+.point:nth-of-type(22),
+figure:nth-of-type(22) {
+    color: sandybrown;
+}
+
+.handle:nth-of-type(23),
+.point:nth-of-type(23),
+figure:nth-of-type(23) {
+    color: lightseagreen;
+}
+
+.handle:nth-of-type(24),
+.point:nth-of-type(24),
+figure:nth-of-type(24) {
+    color: blueviolet;
+}
+
+.handle:nth-of-type(25),
+.point:nth-of-type(25),
+figure:nth-of-type(25) {
+    color: tomato;
+}
+
+.handle:nth-of-type(26),
+.point:nth-of-type(26),
+figure:nth-of-type(26) {
+    color: goldenrod;
+}
+
+.handle:nth-of-type(27),
+.point:nth-of-type(27),
+figure:nth-of-type(27) {
+    color: limegreen;
+}
+
+.side {
+    padding: 0.25rem 0.25rem 1.25rem;
+}
