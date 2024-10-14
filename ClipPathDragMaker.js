@@ -1,3 +1,4 @@
+// https://github.com/ManolisMariakakis/Clip-path-Maker-by-Drag-Drop?tab=GPL-3.0-1-ov-file#readme
 // Initialize global variables
 var width;
 var height;

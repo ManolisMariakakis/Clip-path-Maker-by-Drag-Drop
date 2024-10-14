@@ -24,6 +24,7 @@
 2. **Include the project files in your web project**:
 
    - `ClipPathDragMaker.js`
+   - `ClipPathDragMaker.css`
    - `index.html` (optional for basic usage)
 
 ### Basic Setup
@@ -110,8 +111,8 @@ Here's a simple example that creates a polygon shape:
 
 - **ClipPathDragMaker.js**: Contains the main JavaScript logic to create and manage the clip-path shapes and handle dragging events. It also dynamically appends the CSS file to the document.
 - **index.html**: Basic HTML setup to demonstrate the tool.
-- **ClipPathDragMaker.css**: Optional CSS file for customizing styles if needed.
+- **ClipPathDragMaker.css**: CSS file for customizing styles if needed.
 
 ## License
 
-This project is licensed under the **GPL-3.0 License**.
+[This project is licensed under the **GPL-3.0 License**.](https://github.com/ManolisMariakakis/Clip-path-Maker-by-Drag-Drop?tab=GPL-3.0-1-ov-file#readme)
